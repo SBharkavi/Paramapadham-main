@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paramapadham</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+     <div class="home" id="home" style="display: flex;">
+        <!-- <h1 id="title-text"> SNAKE <br> & <br> LADDER</h1> -->
+        <img src="assets/title.png" alt="Playing dice" class="homeBG" id="title-bg" style="top:150px;" />
+        <button class="btn btn--begin" id="start" style="top:600px;height: 50px;"> ▶ Let's Start</button>
+    </div>
+
+
+    <main class="main--0 hidden">
+        <div class="index">
+            <img src="assets/download.png" style="width: 300px;height:200px;top:-100px;left: 120px;">
+            <div class="get-name">
+                <section class="name-panel" style="top:80px;">
+                    <input type="text" class="name-field" placeholder="Nick name 1" name="name" id='pname0' autocomplete="off" required />
+                    <label for="p0-name" class="name-label"id="p0-label">Name of Player 1</label>
+                </section>
+                <section class="name-panel">
+                    <div class="pname">
+                        <input type="text" class="name-field" placeholder="Your opponent's nick name" name="name" id='pname1' autocomplete="off" required />
+                        <label for="p1-name" class="name-label"id="p0-label">Name of Player 2</label>
+                    </div>
+                </section> 
+            </div>
+            <button class="btn btn--initial btn--start">▶</button>
+        </div>
+    </main>
+    <!-- Game page -->
+    <main class="main--1 hidden">
+        <div class="modal hidden" id="game-flow-modal">
+            <button class="close-gfmodal">&times;</button>
+            <!-- <img src="assets/rule.png" alt="game-flow" class="game-flow"> -->
+        </div>
+        <div class="overlay hidden" id="game-flow-overlay"></div>
+        <div class="modal hidden" id="winner-modal">
+            <h3 id="winner">
+                Congratulations <br>
+                <span id="winner-name"></span><br>
+                You won the game <br>
+            </h3>
+            <button class="btn btn-final btn--end" onclick="history.go(0)">🔚</button>
+            <button class="btn btn-final btn--again">🔁</button>
+        </div>
+        <div class="overlay hidden" id="winner-overlay"></div>
+        <button class="btn btn--initial btn--go-back">◀ Go back</button>
+        <div class="play-page">
+            <section class="player player--0 player--active">
+                <h2 class="name" id="p0-name">Player 1</h2>
+                <p class="score" id="score--0">0</p>
+                <div class="coin"></div>
+                <div class="coin" id="p0--coin"></div>
+            </section>
+            <section class="player player--1">
+                <h2 class="name" id="p1-name">Player 2</h2>
+                <p class="score" id="score--1">0</p>
+                <div class="coin"></div>
+                <div class="coin" id="p1--coin"></div>
+            </section>
+            <img src="" alt="Playing dice" class="dice" id="dice--0"/>
+            <img src="" alt="Playing dice" class="dice" id="dice--1"/>
+            <button class="btn btn--new">New game<br>🔁</button>
+            <button class="btn btn--roll">🎲<br>Roll dice</button>
+        </div>
+        <section class="playing-board">
+            <div class="box playArea">
+                <img src="assets/board.png" alt="playing-board">
+                <div class="box" id="b100"></div>
+                <div class="box" id="b99"></div>
+                <div class="box" id="b98"></div>
+                <div class="box" id="b97"></div>
+                <div class="box" id="b96"></div>
+                <div class="box" id="b95"></div>
+                <div class="box" id="b94"></div>
+                <div class="box" id="b93"></div>
+                <div class="box" id="b92"></div>
+                <div class="box" id="b91"></div>
+                <div class="box" id="b81"></div>
+                <div class="box" id="b82"></div>
+                <div class="box" id="b83"></div>
+                <div class="box" id="b84"></div>
+                <div class="box" id="b85"></div>
+                <div class="box" id="b86"></div>
+                <div class="box" id="b87"></div>
+                <div class="box" id="b88"></div>
+                <div class="box" id="b89"></div>
+                <div class="box" id="b90"></div>
+                <div class="box" id="b80"></div>
+                <div class="box" id="b79"></div>
+                <div class="box" id="b78"></div>
+                <div class="box" id="b77"></div>
+                <div class="box" id="b76"></div>
+                <div class="box" id="b75"></div>
+                <div class="box" id="b74"></div>
+                <div class="box" id="b73"></div>
+                <div class="box" id="b72"></div>
+                <div class="box" id="b71"></div>
+                <div class="box" id="b61"></div>
+                <div class="box" id="b62"></div>
+                <div class="box" id="b63"></div>
+                <div class="box" id="b64"></div>
+                <div class="box" id="b65"></div>
+                <div class="box" id="b66"></div>
+                <div class="box" id="b67"></div>
+                <div class="box" id="b68"></div>
+                <div class="box" id="b69"></div>
+                <div class="box" id="b70"></div>
+                <div class="box" id="b60"></div>
+                <div class="box" id="b59"></div>
+                <div class="box" id="b58"></div>
+                <div class="box" id="b57"></div>
+                <div class="box" id="b56"></div>
+                <div class="box" id="b55"></div>
+                <div class="box" id="b54"></div>
+                <div class="box" id="b53"></div>
+                <div class="box" id="b52"></div>
+                <div class="box" id="b51"></div>
+                <div class="box" id="b41"></div>
+                <div class="box" id="b42"></div>
+                <div class="box" id="b43"></div>
+                <div class="box" id="b44"></div>
+                <div class="box" id="b45"></div>
+                <div class="box" id="b46"></div>
+                <div class="box" id="b47"></div>
+                <div class="box" id="b48"></div>
+                <div class="box" id="b49"></div>
+                <div class="box" id="b50"></div>
+                <div class="box" id="b40"></div>
+                <div class="box" id="b39"></div>
+                <div class="box" id="b38"></div>
+                <div class="box" id="b37"></div>
+                <div class="box" id="b36"></div>
+                <div class="box" id="b35"></div>
+                <div class="box" id="b34"></div>
+                <div class="box" id="b33"></div>
+                <div class="box" id="b32"></div>
+                <div class="box" id="b31"></div>
+                <div class="box" id="b21"></div>
+                <div class="box" id="b22"></div>
+                <div class="box" id="b23"></div>
+                <div class="box" id="b24"></div>
+                <div class="box" id="b25"></div>
+                <div class="box" id="b26"></div>
+                <div class="box" id="b27"></div>
+                <div class="box" id="b28"></div>
+                <div class="box" id="b29"></div>
+                <div class="box" id="b30"></div>
+                <div class="box" id="b20"></div>
+                <div class="box" id="b19"></div>
+                <div class="box" id="b18"></div>
+                <div class="box" id="b17"></div>
+                <div class="box" id="b16"></div>
+                <div class="box" id="b15"></div>
+                <div class="box" id="b14"></div>
+                <div class="box" id="b13"></div>
+                <div class="box" id="b12"></div>
+                <div class="box" id="b11"></div>
+                <div class="box" id="b1"></div>
+                <div class="box" id="b2"></div>
+                <div class="box" id="b3"></div>
+                <div class="box" id="b4"></div>
+                <div class="box" id="b5"></div>
+                <div class="box" id="b6"></div>
+                <div class="box" id="b7"></div>
+                <div class="box" id="b8"></div>
+                <div class="box" id="b9"></div>
+                <div class="box" id="b10"></div>
+            </div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

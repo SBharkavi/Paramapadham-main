@@ -1,0 +1,434 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+/* background-color: #42378f;
+background-image: linear-gradient(315deg, #42378f 0%, #f53844 74%); */
+/* *{
+    margin:0;
+    padding:0;
+    box-sizing: inherit;
+} */
+html{
+    font-size: 60%;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Nunito',sans-serif;
+    font-weight: 300;
+    height:100vh;
+    background-image: url(assets/snake-bg.jpg);
+    background-repeat: no-repeat;
+    background-attachment:local;
+    display:flex;    
+}
+main{
+    position:relative;
+    width:200vw;
+    /* height:200vw; */
+    display: flex;  
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+
+.homeBG {
+    position: absolute;
+    left: 50%;
+    width: 800px;
+    transform: translateX(-50%);
+    height: 400px;
+    box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.2);
+  }
+  
+  /* *.btn--begin {
+    top: 40rem;
+  } */
+  
+/* First page - Start */
+.index{
+    
+    position:absolute;
+    flex-direction: column;
+    width:50rem;
+    height:40rem;
+    /* border:3px solid #013121;
+    background-color: #cce9e5; */
+    padding:10px;
+    border-radius: 3rem;
+}
+
+.get-name{
+    position:relative;
+    align-items: center;
+    justify-content: center;
+    padding:2rem 5rem;
+    overflow: hidden;
+}
+.name-panel{
+    /* background-color: #302c2c; */
+    background-image: url(assets/name-bg.jpg);
+    position: relative;
+    padding: 16px;
+    margin-top: 90px;
+    width:100%;
+    border-radius: 1rem;
+}
+.name-field{
+    font-family: inherit;
+    width: 100%;
+    height:20%;
+    border:0;
+    border-bottom:2px solid  #ad5e03;
+    outline:0;
+    font-size:1.8rem; 
+    color:#fff;
+    padding:7px 0;
+    background: transparent;
+    transition:border-color 0.2s;
+}
+.name-label{
+    position:absolute;
+    top:2px;
+    display:block;
+    transition:0.1s;
+    font-size:1.5rem;
+    color:rgba(216, 216, 172, 0.801);
+}
+.name-field:placeholder-shown~.name-label{
+    font-size:1.5rem;
+    cursor:text;
+    top:20px;
+}
+.name-field::placeholder{
+    color:transparent;
+}
+.name-field:focus~.name-label{
+    position:absolute;
+    top:7px;;
+    display:block;
+    transition: 0.2s;
+    font-size: 1.5rem;
+    color: #11998e;
+    font-weight:700;  
+}
+.name-field:focus{
+    padding-bottom: 6px;  
+    font-weight: 700;
+    border-width: 3px;
+    border-image: linear-gradient(to right, #11998e, #4ff08d);
+    border-image-slice: 1;
+}
+.name-field:required,.name-field:invalid{
+    box-shadow:none;
+} 
+/*  Second page - playing zone */
+.play-page{
+    background-color: rgba(255, 255, 255, 0.35);
+    background-image: url(assets/text-box-bg.jpg);
+    backdrop-filter: blur(100px);
+    /* filter: blur(); */
+    box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.25);
+    /* border-radius: 9px; */
+    overflow: hidden;
+    display: flex;
+    width: 700px;
+    height:615px;
+}
+.player{
+    flex: 50%;
+    padding: 5rem;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    transition: all 0.5s;
+}
+/* Player Name */
+.name{
+    position:relative;
+    font-size: 2.2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    word-spacing: 1px;
+    font-weight: 500;
+    margin-bottom: 2rem;
+}
+/*  score  */
+.score{
+    font-size: 6rem;
+    font-weight: 500;
+    margin-bottom: auto;
+}
+.player--0 .score{
+    color: rgb(4, 0, 255);
+}
+.player--1 .score{
+    color: rgb(255, 0, 0);
+}
+.player--active {
+    background-color: rgba(255, 255, 255, 0.4);
+    border:8px solid rgb(37, 37, 85);
+    border-radius: 10px;
+}
+.player--active .name {
+    font-weight: 700;
+}
+.player--active .score {
+    font-weight: 400;
+}
+.player--active .current {
+    opacity: 1;
+}
+/* Coin */
+.coin{
+    width:40px;
+    height:40px;
+    border-radius: 50%;
+}
+#p0--coin{
+    position:relative;
+    /* background-color: rgb(255, 0, 0); */
+    background-image: url(assets/p2.Png);
+    background-size: cover;
+    width:50px;
+    height: 50px;
+    top:0%;
+    left: 0%;
+    right: 0%;
+    bottom: 0%;
+}
+#p1--coin{
+    position: relative;
+    /* background-color: rgb(38, 0, 128); */
+    background-image: url(assets/p1.Png);
+    background-size: cover;
+    width:50px;
+    height: 50px;
+    top:0%;
+    left:0%;
+    right:0%;
+    bottom: 0%;
+    /* right:10%; */
+}
+/* Common button style */
+.btn{
+    font-weight: bolder;
+    background: none;
+    border: none;
+    border:2px solid #013121;
+    font-family: inherit;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: 1000;
+    transition: all 0.2s;
+    /* backdrop-filter: blur(1px); */
+    transform: translateX(-50%);
+    box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.1);
+}
+
+.btn--begin{
+    position: absolute;
+    padding: 0.5rem 5rem;
+    left:80rem;
+    color: #f3ec8c;
+    border: brown;
+    background-image: url(assets/button-bg.jpg);
+    /* background-color: rgb(158, 158, 8);
+    background-color: rgb(17, 17, 121); */
+    border-radius: 1.5rem;
+}
+/* Button- start and go back */
+.btn--initial{
+    position: absolute;
+    padding: 0.5rem 2.5rem;
+    color: #f3ec8c;
+    border: brown;
+    background-image: url(assets/button-bg.jpg);
+    /* background-color: rgb(158, 158, 8);
+    background-color: rgb(17, 17, 121); */
+    border-radius: 1.5rem;
+}
+
+.btn--start{
+    left: 50%;
+    bottom:-3rem;
+    font-size:2.5rem;
+}
+.btn--go-back{
+    top:3%;
+    left:9%;
+}
+.btn--new,.btn--roll{
+    position: absolute;
+    padding: 0.5rem 2.5rem;
+    left: 50%;
+    background-color: rgb(158, 158, 8);
+    background-color: rgba(233, 255, 31, 0.8);
+    color:#4e0505;
+    border-radius: 5rem;
+}
+.btn--new {
+    top: 4rem;
+}
+.btn--roll {
+    bottom: 4rem;
+}
+.btn:active {
+    transform: translate(-50%, 3px);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+}   
+.btn:focus {
+    outline: none;
+}
+/* Dice */
+.dice {
+    position:absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 190px;
+    height:45px;
+    box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.2);
+}
+#dice--0{
+    top: 18rem;
+}
+#dice--1{
+    top: 23rem;
+}
+/* Game board */
+.playing-board{
+    margin:0 2rem;
+}
+.playArea{
+    display: grid; 
+    /* border:3px solid rgb(37, 2, 2); */
+    grid-template-columns: repeat(10,1fr);
+    width:615px;
+    height:615px;
+}
+*.playArea div{
+    width: 60px;
+    height: 60px;
+    border: 0.2px solid black;
+}
+img{
+    position: absolute;
+    width: 615px;
+    height: 615px;
+}
+/* Overlay */
+.overlay{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 5;
+}
+/* Overlay modal */
+.modal{
+    position:absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition:all linear 0.5s;
+    padding: 1rem;
+}
+#winner-modal{
+    width: 40%;
+    background-color: #0c0152;
+    /* background-image: linear-gradient(315deg, #746ab6 0%, #9e141d 74%); */
+    background-image: url(assets/winner-bg.jpg);
+    border:5px solid #2a2a28;
+    border-radius: 6px;
+    font-size:medium;
+    box-shadow: 0 3rem 5rem rgb(224, 199, 37);
+    z-index: 10;
+}
+#winner{
+    text-align: center;
+    font-size: 2.5rem;
+    color:#f0fff1;
+    padding:0px 0px;
+}
+#winner-name{
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 5rem;
+    color:#c9ffcd;
+}
+.emoji{
+    font-size: larger;
+}
+.game-flow{
+    position:relative;
+    top:1%;
+    left:1%;
+    width:80rem;
+    height:45rem;
+}
+#game-flow-modal{
+    width: 60%;
+    height:85%;
+    /* background-color: rgb(255, 255, 255,0.7); */
+    background-image: url(assets/rule.png);
+    background-size: cover;
+    border:5px solid #790404;
+    border-radius: 6px;
+    font-size:medium;
+    box-shadow: 0 3rem 5rem rgba(54, 58, 3, 0.89);
+    z-index:10;
+}
+
+.close-gfmodal {
+    position: absolute;
+    top: 0.2rem;
+    right: 2rem;
+    font-size: 10rem;
+    color: #790404;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+ /* Buttons in modal */
+.btn-final{
+    position:relative;
+    padding: 1.2rem 2rem;
+    bottom:-25px;
+    border:5px solid #fdf57d;
+    border-radius:1.5rem;
+    background-color: #238636;
+    color:#ffffff;
+    font-size: large;
+}
+.btn--end{
+   float:left;
+   left:13%;
+   /* background-color: #4e0505; */
+   background-image: url(assets/button-bg.jpg);
+} 
+.btn--again{
+   padding:1.3rem 2rem;
+   float:right;
+   right:12%;
+   background-image:url(assets/button-bg.jpg);
+   /* background-color: #4e0505; */
+}
+/* 
+.btn--end{
+    float:left;
+    left:-2%;
+ } 
+ .btn--again{
+    float:right;
+    right:-23%
+ } */
+
+/* Nodal works */
+.hidden{
+    transition: linear all 0.3s;
+    display: none;
+}
+
+
