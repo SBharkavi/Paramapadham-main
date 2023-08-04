@@ -34,9 +34,9 @@ const playerName1El=document.querySelector('#p1-name');
 const score0El=document.querySelector('#score--0');
 const score1El=document.querySelector('#score--1');
 //rules
-const gameFlowOverlay= document.querySelector('#game-flow-overlay');
-const gameFlowModal= document.querySelector('#game-flow-modal');
-const closeModalBtn=document.querySelector('.close-gfmodal');
+// const gameFlowOverlay= document.querySelector('#game-flow-overlay');
+// const gameFlowModal= document.querySelector('#game-flow-modal');
+// const closeModalBtn=document.querySelector('.close-gfmodal');
 //winner 
 const winnerOverlay= document.querySelector('#winner-overlay');
 const winnerModal= document.querySelector('#winner-modal');
@@ -264,8 +264,10 @@ const startGame=()=>{
        playerName1El.textContent=playerNames[opponentPlayer];
        startPage.classList.add('hidden');
        gamePage.classList.remove('hidden');
-       gameFlowOverlay.classList.remove('hidden');
-       gameFlowModal.classList.remove('hidden'); 
+       gameFlowModal.classList.add('hidden');
+       gameFlowOverlay.classList.add('hidden');
+    //    gameFlowOverlay.classList.remove('hidden');
+    //    gameFlowModal.classList.remove('hidden'); 
    }
 }
 
@@ -337,8 +339,8 @@ homeBtn.addEventListener("click",homeFunction);
 // start button
 startBtn.addEventListener("click",startGame);
 
-// close modal button
-closeModalBtn.addEventListener("click",closeModal);
+// // close modal button
+// closeModalBtn.addEventListener("click",closeModal);
 
 // roll dice button
 rollBtn.addEventListener("click",playMyTurn);
