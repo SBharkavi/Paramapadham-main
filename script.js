@@ -18,7 +18,7 @@ const goBackBtn=document.querySelector('.btn--go-back');
 const newBtn=document.querySelector(".btn--new");
 const replayBtn=document.querySelector('.btn--again');
 const endBtn=document.querySelector(".btn--end");
-//for keyboard event handlers
+//player name
 const pnamefield0=document.getElementById('pname0');
 const pnamefield1=document.getElementById('pname1');
 //dice
@@ -33,10 +33,6 @@ const playerName1El=document.querySelector('#p1-name');
 //scores
 const score0El=document.querySelector('#score--0');
 const score1El=document.querySelector('#score--1');
-//rules
-// const gameFlowOverlay= document.querySelector('#game-flow-overlay');
-// const gameFlowModal= document.querySelector('#game-flow-modal');
-// const closeModalBtn=document.querySelector('.close-gfmodal');
 //winner 
 const winnerOverlay= document.querySelector('#winner-overlay');
 const winnerModal= document.querySelector('#winner-modal');
@@ -158,12 +154,12 @@ const moveCoinDefault=()=>{
 // voice message snake & ladder
 let textTospeechLadder = function(){
     msg.text = `congrats ${playerNames[activePlayer]}!you are enter a ladder`;
-    window.speechSynthesis.speak(msg);
+    // window.speechSynthesis.speak(msg);
 }
 
 let textTospeechSnake = function(){
     msg.text = `Oppsss! ${playerNames[activePlayer]} you are stepped a snake`
-    window.speechSynthesis.speak(msg);
+    // window.speechSynthesis.speak(msg);
 }
 
 // 5. snake and ladder verification
@@ -264,10 +260,6 @@ const startGame=()=>{
        playerName1El.textContent=playerNames[opponentPlayer];
        startPage.classList.add('hidden');
        gamePage.classList.remove('hidden');
-       gameFlowModal.classList.add('hidden');
-       gameFlowOverlay.classList.add('hidden');
-    //    gameFlowOverlay.classList.remove('hidden');
-    //    gameFlowModal.classList.remove('hidden'); 
    }
 }
 
@@ -303,10 +295,6 @@ const playMyTurn=()=>{
     } 
 }
 
-const closeModal=function(){
-    gameFlowModal.classList.add('hidden');
-    gameFlowOverlay.classList.add('hidden');
-}
 
 // go back function
 const goBack=()=>{
@@ -403,7 +391,7 @@ pnamefield1.addEventListener("keydown",function(event){
 })
 document.addEventListener("keypress",(event)=>{
     if(event.key==="Enter"){
-        if((!(gamePage.classList.contains('hidden')))&&(gameFlowModal.classList.contains('hidden'))&&(gameFlowOverlay.classList.contains('hidden'))){
+        if((!(gamePage.classList.contains('hidden')))){
             event.preventDefault();
             rollBtn.click();
         }   
